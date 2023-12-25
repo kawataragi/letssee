@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #chat-box {
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    #message-input {
+      width: 70%;
+      padding: 8px;
+    }
+
+    #send-button {
+      width: 28%;
+      padding: 8px;
+    }
+  </style>
+  <title>Private Chat</title>
+</head>
+<body>
+
+  <div id="chat-box"></div>
+
+  <input type="text" id="message-input" placeholder="Type your message">
+  <button id="send-button" onclick="sendMessage()">Send</button>
+
+  <script>
+    function sendMessage() {
+      var messageInput = document.getElementById('message-input');
+      var chatBox = document.getElementById('chat-box');
+      var message = messageInput.value;
+
+      if (message.trim() !== '') {
+        // For simplicity, just append the message to the chat box
+        chatBox.innerHTML += '<p>You: ' + message + '</p>';
+
+        // Clear the input field
+        messageInput.value = '';
+
+        // You would typically send the message to the server for storage and broadcast to other users
+        // This example doesn't involve a server, so it's just a local display.
+      }
+    }
+  </script>
+
+</body>
+</html>
